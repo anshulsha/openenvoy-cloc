@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { PythonFileProcessorService } from '../modules/python-processing/services/file-processor.service';
-import { LanguageFileProcessor } from '../modules/common/abstract-classes/language-file-processor';
+import { PythonFileProcessorService } from '../../modules/python-processing/services/file-processor.service';
+import { LanguageFileProcessor } from '../abstract-classes/language-file-processor';
 import { JavaFileProcessorService } from 'src/modules/java-processing/services/file-processor.service';
 
 @Injectable()

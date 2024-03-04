@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { FileProcessorFactory } from './factory/factory-provider';
+import { FileProcessorFactory } from './common/factory/factory-provider';
 import * as fs from 'fs';
 import * as path from 'path';
 

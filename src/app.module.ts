@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FileProcessorFactory } from './factory/factory-provider';
+import { FileProcessorFactory } from './common/factory/factory-provider';
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
