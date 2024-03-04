@@ -17,18 +17,27 @@ export class JavaFileProcessorService implements LanguageFileProcessor {
     codeLines: number;
     totalLines: number;
   } {
-    Logger.log(`Processing Java file ...`);
-    const data = fs.readFileSync(filename, 'utf8');
-    const lines = data.split('\n');
-    const { blankLines, commentLines, codeLines } =
-      this.javaLineCounterService.countLines(lines);
-    this.printCounter.printResults(blankLines, commentLines, codeLines);
+    try {
+      Logger.log(`Processing Java file: ${filename}`);
+      const data = fs.readFileSync(filename, 'utf8');
+      const lines = data.split('\n');
+      const { blankLines, commentLines, codeLines } =
+        this.javaLineCounterService.countLines(lines);
+      this.printCounter.printResults(blankLines, commentLines, codeLines);
 
-    return {
-      blankLines,
-      commentLines,
-      codeLines,
-      totalLines: blankLines + commentLines + codeLines,
-    };
+      return {
+        blankLines,
+        commentLines,
+        codeLines,
+        totalLines: blankLines + commentLines + codeLines,
+      };
+    } catch (error) {
+      Logger.error(
+        `Error processing Java file: ${filename}`,
+        error.stack,
+        'JavaFileProcessorService',
+      );
+      throw error;
+    }
   }
 }

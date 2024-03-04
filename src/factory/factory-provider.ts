@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { PythonFileProcessorService } from '../modules/python-processing/services/file-processor.service';
-
 import { LanguageFileProcessor } from '../modules/common/abstract-classes/language-file-processor';
 import { JavaFileProcessorService } from 'src/modules/java-processing/services/file-processor.service';
 
@@ -20,10 +19,15 @@ export class FileProcessorFactory {
 
   create(filename: string): LanguageFileProcessor {
     const fileExtension = filename.split('.').pop()?.toLowerCase();
+    if (!fileExtension) {
+      throw new Error(`Invalid file name: ${filename}`);
+    }
+
     const processor = this.processors.get(fileExtension);
     if (!processor) {
       throw new Error(`Unsupported file extension: ${fileExtension}`);
     }
+
     return processor;
   }
 }
