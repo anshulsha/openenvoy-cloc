@@ -1,8 +1,4 @@
 export abstract class LanguageFileProcessor {
-  abstract processFile(filename: string): {
-    blankLines: number;
-    commentLines: number;
-    codeLines: number;
-    totalLines: number;
-  };
+  abstract processFile(filename: string): void;
+  abstract processDirectory(directoryPath: string): void;
 }

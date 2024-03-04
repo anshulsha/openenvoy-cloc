@@ -53,10 +53,14 @@ $ npm run test
 ```
 
 ## Postman Curl
+
 ```bash
-# curl
-$ curl --location 'localhost:3000/file-processing/test.py'
+# curl to test for a directory
+$ curl --location 'localhost:3000/file-processing/directory?directoryPath=/Users/anshulsharma/openenvoy-project/cloc/sample_data'
+# cutl to test for the file
+$ curl --location 'localhost:3000/file-processing/file?filePath=/Users/anshulsharma/openenvoy-project/cloc/sample_data/java/test.java'
 ```
+
 Replace test.py with test.java for java language processing
 
 ## License
