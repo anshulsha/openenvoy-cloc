@@ -61,7 +61,7 @@ $ curl --location 'localhost:3000/file-processing/directory?directoryPath=/Users
 $ curl --location 'localhost:3000/file-processing/file?filePath=/Users/anshulsharma/openenvoy-project/cloc/sample_data/java/test.java'
 ```
 
-Replace test.py with test.java for java language processing
+Replace test.py with test.java for python or java language processing
 
 ## License
 
